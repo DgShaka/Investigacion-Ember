@@ -1,0 +1,96 @@
+
+<button id="openFormButton" type="button" {{on "click" this.displayFormComment}}>Submit Comment</button>
+<div id="overlay"></div>
+
+<div id="formComment">
+  <div class="card">
+    <div class="card-header">
+      <h4>Leave Your Comment</h4>
+    </div>
+    <div class="card-body">
+      <form id="form-comment" {{on "submit" this.submitComment}} class="needs-validation" novalidate>
+
+        <div class="mb-3">
+          <label class="form-label">Email:</label>
+          <input id="inputClientEmail" type="email" class="form-control" placeholder="youremail@example.com"
+            value={{this.email}}
+            {{on "input" this.updateEmail}} required />
+          <div class="invalid-feedback">Please enter your email</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Comment:</label>
+          <textarea id="inputClientComment" class="form-control" rows="3" placeholder="Write your comment here..."
+            value={{this.clientComment}}
+            {{on "input" this.updateClientComment}} required></textarea>
+          <div class="invalid-feedback">Please enter your opinion</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Rating (1-5):</label>
+          <input type="number" class="form-control w-50" min="1" max="5"
+            value={{this.clientQualification}}
+            {{on "input" this.updateClientQualification}} />
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox"
+            checked={{this.recommendToAnotherPerson}}
+            {{on "change" this.updateRecommendToAnotherPerson}} />
+          <label class="form-check-label">Would you recommend to others?</label>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Improvements:</label>
+          <input type="text" class="form-control" placeholder="How can we improve? (optional)"
+            value={{this.improvement}}
+            {{on "input" this.updateImprovement}} />
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">Submit Comment</button>
+        </div>
+      </form>
+      <div class="invalid-feedback">Email not registered</div>
+    </div>
+  </div>
+</div>
+
+{{!-- Overlay para la pantalla de éxito --}}
+<div id="comment-overlay-success" style="display: none;"></div>
+
+{{!-- Pantalla de agradecimiento --}}
+<div id="comment-success-screen" class="text-center p-5" style="display: none;">
+  <div class="success-content bg-white rounded shadow-lg p-4">
+    <div class="success-icon mb-4">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Success Icon" width="100" height="100">
+    </div>
+    <h2 class="success-title display-4 fw-bold mb-3">Thank You!</h2>
+    <p class="success-message fs-5 mb-4">
+      We appreciate your feedback. <br>
+      Your comment helps us improve our services at <span class="text-primary fw-bold">Neo Smile</span>.
+    </p>
+    <button id="comment-success-close-button" class="btn btn-primary btn-lg" type="button">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+  document.getElementById('overlay').addEventListener('click', function () {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('formComment').style.display = 'none';
+  });
+
+  // Cerrar la pantalla de éxito
+  document.getElementById('comment-success-close-button').addEventListener('click', function () {
+    document.getElementById('comment-overlay-success').style.display = 'none';
+    document.getElementById('comment-success-screen').style.display = 'none';
+  });
+
+  // Cerrar la pantalla de éxito al hacer clic en el overlay
+  document.getElementById('comment-overlay-success').addEventListener('click', function () {
+    document.getElementById('comment-overlay-success').style.display = 'none';
+    document.getElementById('comment-success-screen').style.display = 'none';
+  });
+</script>

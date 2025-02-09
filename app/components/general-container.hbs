@@ -1,0 +1,49 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<header class="m-2">
+    <div class="container-fluid" id="general-cont-header">
+        <div class="row" id="general-cont-row">
+            <div class="col-12 d-flex align-items-center justify-content-center" id="general-cont-col">
+                <nav class="navbar navbar-expand-lg shadow-sm rounded-3 w-100 px-3" id="general-cont-navbar">
+
+                    <a class="navbar-brand fs-2 fw-bold text-primary" href="#">
+                        <LinkTo @route="index" style="text-decoration: none;" id="general-cont-navbar-brand">Neo Smile</LinkTo>
+                    </a>
+                    
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="general-cont-navbar-toggler">
+                        <span class="navbar-toggler-icon" id="general-cont-navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav fs-4" id="general-cont-navbar-nav-list">
+                            <li class="nav-item mx-2" id="general-cont-nav-item-home">
+                                <LinkTo @route="index" class="nav-link text-dark" id="general-cont-nav-link-home">Home</LinkTo>
+                            </li>
+                            <li class="nav-item me-2" id="general-cont-nav-item-registration">
+                                <LinkTo @route="registration" class="nav-link text-dark" id="general-cont-nav-link-registration">Login</LinkTo>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex ms-4 gap-4" id="general-cont-social-media">
+                            <a href="#" class="nav-link fs-4 text-primary" id="general-cont-social-instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="nav-link fs-4 text-primary" id="general-cont-social-tiktok"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="nav-link fs-4 text-primary" id="general-cont-social-whatsapp"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" class="nav-link fs-4 text-primary" id="general-cont-social-facebook"><i class="bi bi-facebook"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<main id="general-cont-main">
+    {{yield}}
+</main>
+
+<footer class="text-center py-3" id="general-cont-footer">
+    <p class="m-0" id="general-cont-footer-text">&copy; 2025 Neo Smile. All rights reserved.</p>
+</footer>

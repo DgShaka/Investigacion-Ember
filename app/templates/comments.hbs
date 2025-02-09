@@ -1,0 +1,14 @@
+{{page-title "Comments"}}
+
+<GeneralContainer>
+  <HomeNavigation></HomeNavigation>
+  <h1 class="text-center m-4">What our clients say</h1>
+  <button id="reloadButton" class="btn btn-primary mb-4" type="button" {{on "click" this.reloadComments}}>Reload Comments</button>
+
+  {{!-- Contenedor de las tarjetas --}}
+  <div id="cardContainer">
+    <div id="cardRow" class="row">
+      {{!-- Las tarjetas se cargarán dinámicamente aquí --}}
+    </div>
+  </div>
+</GeneralContainer>

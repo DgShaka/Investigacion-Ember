@@ -1,0 +1,21 @@
+{{page-title "Services"}}
+
+<GeneralContainer>
+    <HomeNavigation></HomeNavigation>
+    <div id="service-container" class="container-fluid mt-4">
+        <h1 id="service-title" class="text-center mb-4">Our Services</h1>
+        <div id="service-row" class="row row-cols-1 row-cols-md-3 g-4">
+            {{#each this.services as |service|}}
+                <div id="service-card-{{service.id}}" class="col text-center">
+                    <div class="card h-100">
+                        <img id="service-image-{{service.id}}" src="{{service.image}}" class="card-img-top img-fluid" alt="{{service.title}}">
+                        <div id="service-body-{{service.id}}" class="card-body">
+                            <h5 id="service-title-{{service.id}}" class="card-title">{{service.title}}</h5>
+                            <p id="service-text-{{service.id}}" class="card-text">{{service.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</GeneralContainer>

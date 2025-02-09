@@ -1,0 +1,806 @@
+
+//GENERAL-----------------------------------------------------------------------------------
+html,
+body {
+  height: 100%; /* Asegura que ocupen toda la altura de la ventana */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
+  padding-bottom: 50px; /* Ajusta según el tamaño del footer */
+}
+
+footer {
+  background-color: #007bff; /* Color de fondo del footer */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+//GENERAL-CONTAINER-----------------------------------------------------------------------------------
+
+/* Estilos para el header */
+#general-cont-header {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 80%); /* Sombra predeterminada en el header */
+  }
+  
+  /* Estilos para el navbar */
+  #general-cont-navbar {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #general-cont-navbar.scrolled {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%); /* Sombra más pronunciada cuando se hace scroll */
+  }
+  
+  #general-cont-navbar-brand {
+    font-size: 1.75rem;
+    color: #0d6efd;
+  }
+  
+  /* Estilos para los enlaces del menú */
+  #general-cont-navbar-nav-list .nav-link {
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+  
+  #general-cont-navbar-nav-list .nav-link:hover {
+    color: #0d6efd !important;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilos para los íconos de redes sociales */
+  #general-cont-social-media .nav-link {
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+  
+  #general-cont-social-media .nav-link:hover {
+    color: #0a58ca !important;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilos para el footer */
+  #general-cont-footer {
+    background-color: #f8f9fa;
+    padding: 1.5rem 0;
+    box-shadow: 0 -4px 10px rgb(0 0 0 / 10%); /* Sombra suave para el footer */
+  }
+  
+  #general-cont-footer-text {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+  
+  #general-cont-navbar {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #general-cont-navbar.scrolled {
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  }
+
+  
+//HOME-NAV-----------------------------------------------------------------------------------
+
+  /* Estilos para el header */
+#home-nav-container {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 30%); /* Sombra predeterminada en el header */
+  }
+  
+  #home-nav-navbar {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #home-nav-navbar.scrolled {
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  }
+  
+  /* Estilos para los enlaces del menú */
+  #home-nav-list .nav-link {
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+  
+  #home-nav-list .nav-link:hover {
+    color: #0d6efd !important;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilos para los ítems del menú */
+  #home-nav-item-about-us,
+  #home-nav-item-services,
+  #home-nav-item-comments {
+    margin: 0 10px;
+  }
+  
+  /* Estilos para el contenedor del menú */
+  #home-nav-navbar-collapse {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  #home-nav-navbar {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #home-nav-navbar.scrolled {
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  }
+
+
+
+  //REGIST-----------------------------------------------------------------------------------
+  #regist-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+#regist-form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+#regist-fullName,
+#regist-email,
+#regist-phone,
+#regist-dateTime,
+#regist-serviceType {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+#regist-fullName:focus,
+#regist-email:focus,
+#regist-phone:focus,
+#regist-dateTime:focus,
+#regist-serviceType:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#regist-submit-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+}
+#regist-submit-button:hover {
+    background-color: #0056b3;
+}
+
+
+ /* COMENT-REGIST----------------------------------------------------------------------------------- */
+  /* Estilo para el botón que abre el formulario */
+  #openFormButton {
+    background-color: #00BFA5; /* Color primario de Neo Smile */
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    margin: 20px;
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  }
+
+  #openFormButton:hover {
+    background-color: #00796B; /* Color más oscuro al pasar el mouse */
+  }
+
+  #openFormButton:active {
+    background-color: #004D40; /* Color aún más oscuro al hacer clic */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
+  }
+
+  /* Fondo semitransparente */
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  /* Contenedor del formulario */
+  #formComment {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  /* Estilos de la tarjeta */
+  #formComment .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #formComment .card-header {
+    background-color: #00BFA5; /* Color primario de Neo Smile */
+    color: white;
+    font-size: 1.25rem;
+    padding: 15px;
+    text-align: center;
+  }
+
+  #formComment .card-body {
+    padding: 20px;
+    background-color: white;
+  }
+
+  /* Estilos de los inputs y textarea */
+  #formComment .form-control {
+    border-radius: 5px;
+    border: 1px solid #B2DFDB; /* Color secundario */
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #E0F2F1; /* Fondo claro */
+    color: #263238; /* Texto oscuro */
+  }
+
+  #formComment .form-control:focus {
+    border-color: #00796B; /* Color más oscuro */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  /* Estilos del botón de enviar */
+  #formComment .btn-success {
+    background-color: #00BFA5; /* Color primario de Neo Smile */
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  #formComment .btn-success:hover {
+    background-color: #00796B; /* Color más oscuro */
+  }
+
+  /* Estilos para la pantalla de éxito */
+  #comment-overlay-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  #comment-success-screen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  #comment-success-screen .success-icon img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #comment-success-screen .success-title {
+    color: #00BFA5; /* Color primario de Neo Smile */
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  #comment-success-screen .success-message {
+    color: #263238; /* Texto oscuro */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  #comment-success-close-button {
+    background-color: #00BFA5; /* Color primario de Neo Smile */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #comment-success-close-button:hover {
+    background-color: #00796B; /* Color más oscuro */
+  }
+
+
+//COMMENTS---------------------------------------------------------------------------------
+
+/* Contenedor principal */
+#cardContainer {
+  width: 70%; /* El contenedor ocupa el 70% del ancho */
+  margin: 0 auto; /* Centramos el contenedor */
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+/* Fila de tarjetas */
+#cardRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Espaciado entre las tarjetas */
+}
+
+/* Estilo para cada tarjeta */
+#card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+/* Efecto hover para las tarjetas */
+#card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cuerpo de la tarjeta */
+#cardBody {
+  padding: 20px;
+}
+
+/* Título de la tarjeta */
+#cardTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Subtítulo de la tarjeta */
+#cardSubtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Texto de la tarjeta */
+#cardText {
+  font-size: 1rem;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover en el texto */
+#cardText:hover {
+  background-color: #e9ecef;
+}
+
+/* Botón de recarga */
+#reloadButton {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover en el botón */
+#reloadButton:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 1200px) {
+  #card {
+    width: 48%; /* 2 tarjetas por fila en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  #card {
+    width: 100%; /* 1 tarjeta por fila en pantallas pequeñas */
+  }
+}
+
+
+//THANK YOU SCREEN REGIST------------------------------------------
+#regist-thank-you-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1000;
+}
+
+#regist-thank-you-screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.thank-you-content {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.thank-you-icon img {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+.thank-you-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.thank-you-message {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+#regist-thank-you-close-button {
+  background-color: #17a2b8;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+#regist-thank-you-close-button:hover {
+  background-color: #138496;
+}
+
+
+
+//MANAGE RECORDS -------------------------------------------------------------------------------------------------------------------
+/* Estilo para el overlay */
+#manage-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Estilo para el contenedor del formulario */
+#manage-container-form-ManageRecords {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Estilo para el título del formulario */
+#manage-container-form-ManageRecords h2 {
+  color: #00796B;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los inputs del formulario */
+#manage-email,
+#manage-fullName,
+#manage-phone,
+#manage-dateTime,
+#manage-serviceType {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B2DFDB;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #263238;
+  background-color: #E0F2F1;
+  margin-bottom: 1rem;
+}
+
+#manage-email:focus,
+#manage-fullName:focus,
+#manage-phone:focus,
+#manage-dateTime:focus,
+#manage-serviceType:focus {
+  border-color: #00BFA5;
+  outline: none;
+}
+
+/* Estilo para los mensajes de error */
+#manage-container-form-ManageRecords .invalid-feedback {
+  color: #F44336;
+  font-size: 14px;
+  display: none;
+}
+
+/* Estilo para los mensajes de éxito */
+#manage-edit-feedback,
+#manage-delete-feedback {
+  display: none;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#manage-edit-feedback {
+  color: #4CAF50;
+}
+
+#manage-delete-feedback {
+  color: #F44336;
+}
+
+/* Estilo para los botones */
+#manage-searchClient-submit-button,
+#manage-formEdit button[type="submit"],
+#manage-formEdit button[type="button"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+#manage-searchClient-submit-button,
+#manage-formEdit button[type="submit"] {
+  background-color: #00BFA5;
+  color: white;
+}
+
+#manage-searchClient-submit-button:hover,
+#manage-formEdit button[type="submit"]:hover {
+  background-color: #00796B;
+}
+
+#manage-formEdit button[type="button"] {
+  background-color: #F44336;
+  color: white;
+}
+
+#manage-formEdit button[type="button"]:hover {
+  background-color: #D32F2F;
+}
+
+/* Estilo para el select */
+#manage-serviceType {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B2DFDB;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #263238;
+  background-color: #E0F2F1;
+}
+
+#manage-serviceType:focus {
+  border-color: #00BFA5;
+  outline: none;
+}
+
+/* Estilo para el botón que abre el formulario */
+#manage-openForm-ManageRecords {
+  background-color: #00BFA5; /* Color primario de Neo Smile */
+  color: white; /* Texto en blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+#manage-openForm-ManageRecords:hover {
+  background-color: #00796B; /* Color más oscuro al pasar el mouse */
+}
+
+#manage-openForm-ManageRecords:active {
+  background-color: #004D40; /* Color aún más oscuro al hacer clic */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
+}
+
+#manage-success-screen {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1002;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+#manage-overlay-success {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1001;
+}
+
+
+
+//SERVICES -------------------------------------------------------------------------------------------------------------
+/* Estilos para el contenedor principal */
+#service-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Estilos para el título */
+#service-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Estilos para la fila de tarjetas */
+#service-row {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Estilos para cada tarjeta */
+[id^="service-card-"] {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[id^="service-card-"]:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la imagen de la tarjeta */
+[id^="service-image-"] {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Estilos para el cuerpo de la tarjeta */
+[id^="service-body-"] {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Estilos para el título de la tarjeta */
+[id^="service-title-"] {
+  font-size: 1.5rem;
+  color: #34495e;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para el texto de la tarjeta */
+[id^="service-text-"] {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* Estilos para el botón de la tarjeta */
+[id^="service-button-"] {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+[id^="service-button-"]:hover {
+  background-color: #2980b9;
+}
