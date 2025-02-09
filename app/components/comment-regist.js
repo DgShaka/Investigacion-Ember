@@ -35,9 +35,8 @@ export default class CommentRegist extends Component {
     if (this.email === '' || this.clientComment === '') {
       this.validateData();
     } else {
-      console.log('Flag A');
+
       this.validateData();
-      console.log('Flag B');
       let success = this.comment.addComment(
         this.clientComment,
         this.email,
@@ -45,7 +44,6 @@ export default class CommentRegist extends Component {
         this.recommendToAnotherPerson,
         this.improvement,
       );
-      console.log('Flag C');
 
       if (!success) {
         document.getElementById('form-comment').classList.add('is-invalid');

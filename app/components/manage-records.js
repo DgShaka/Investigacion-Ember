@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 export default class ManageRecords extends Component {
   @tracked clientName = '';
   @tracked clientEmail = '';
+  @tracked clientEmailToEdit = '';
   @tracked clientPhone = '';
   @tracked appointmentDate = '';
   @tracked requestService = '';
@@ -17,6 +18,9 @@ export default class ManageRecords extends Component {
   };
   updateEmail = (event) => {
     this.clientEmail = event.target.value;
+  };
+  updateEmailToEdit = (event) => {
+    this.clientEmailToEdit = event.target.value;
   };
   updatePhone = (event) => {
     this.clientPhone = event.target.value;
@@ -39,6 +43,7 @@ export default class ManageRecords extends Component {
       } else {
         document.getElementById('manage-invalid-email').style.display = 'none';
         this.clientName = this.clientEdit.clientName;
+        this.clientEmailToEdit = this.clientEdit.clientEmail;
         this.clientPhone = this.clientEdit.clientPhone;
         this.appointmentDate = this.clientEdit.appointmentDate;
         this.requestService = this.clientEdit.requestService;
@@ -53,15 +58,17 @@ export default class ManageRecords extends Component {
     event.preventDefault();
 
     if (this.validateData()) {
+
       let updatedClient = {
         clientName: this.clientName,
-        clientEmail: this.clientEmail,
+        clientEmail: this.clientEmailToEdit,
         clientPhone: this.clientPhone,
         appointmentDate: this.appointmentDate,
         requestService: this.requestService,
       };
 
-      let result = this.client.editClient(updatedClient);
+
+      let result = this.client.editClient(updatedClient, this.clientEdit.id);
 
       if (result) {
         this.cleanForm();
@@ -120,6 +127,7 @@ export default class ManageRecords extends Component {
   cleanForm = () => {
     this.clientName = '';
     this.clientEmail = '';
+    this.clientEmailToEdit = '';
     this.clientPhone = '';
     this.appointmentDate = '';
     this.requestService = '';

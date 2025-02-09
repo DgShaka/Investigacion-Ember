@@ -35,6 +35,15 @@
         </div>
 
         <div class="mb-3">
+            <label for="manage-fullName">Email</label>
+            <input type="text" id="manage-fullName" class="form-control" placeholder="Enter your full name" required
+                   {{on "input" this.updateEmailToEdit}} value={{this.clientEmailToEdit}}>
+            <div id="manage-invalid-name" class="text-danger" style="display: none;">
+                Email is required.
+            </div>
+        </div>
+
+        <div class="mb-3">
             <label for="manage-phone">Phone</label>
             <input type="number" id="manage-phone" class="form-control" placeholder="Enter your phone number" pattern="[0-9]{10}" required
                    {{on "input" this.updatePhone}} value={{this.clientPhone}}>

@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 export default class ClientService extends Service {
   @service store; // Inyectar store de Ember Data
   @tracked clients = [];
+  @tracked lastID = 0;
 
   /**
    * Agrega un nuevo cliente al arreglo
@@ -16,7 +17,9 @@ export default class ClientService extends Service {
     appointmentDate,
     requestService,
   ) {
+
     let newClient = this.store.createRecord('client', {
+      clientID: this.lastID,
       clientName,
       clientEmail,
       clientPhone,
@@ -25,6 +28,7 @@ export default class ClientService extends Service {
     });
 
     this.clients = [...this.clients, newClient]; // Agregar nuevo cliente al array
+    this.lastID ++;
   }
 
   /**
@@ -37,9 +41,9 @@ export default class ClientService extends Service {
   /**
    * Edita un cliente si existe en la lista
    */
-  editClient(updatedClient) {
+  editClient(updatedClient, clientID) {
     let client = this.clients.find(
-      (c) => c.clientEmail === updatedClient.clientEmail,
+      (c) => c.id === clientID,
     );
     if (client) {
       client.clientName = updatedClient.clientName;
