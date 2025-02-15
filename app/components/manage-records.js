@@ -58,7 +58,6 @@ export default class ManageRecords extends Component {
     event.preventDefault();
 
     if (this.validateData()) {
-
       let updatedClient = {
         clientName: this.clientName,
         clientEmail: this.clientEmailToEdit,
@@ -66,7 +65,6 @@ export default class ManageRecords extends Component {
         appointmentDate: this.appointmentDate,
         requestService: this.requestService,
       };
-
 
       let result = this.client.editClient(updatedClient, this.clientEdit.id);
 
