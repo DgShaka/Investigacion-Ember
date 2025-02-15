@@ -11,7 +11,7 @@ export default class Regist extends Component {
 
   @service client; // Inyectamos el servicio del cliente para agregar el nuevo a la lista
 
-  // Métodos para manejar la actualización de cada campo
+  // Métodos para manejar la actualización de cada campo, cada vez que se agregue un valor en el input correspondiente se va actualizar la variable
   updateName = (event) => {
     this.clientName = event.target.value;
   };
@@ -57,7 +57,7 @@ export default class Regist extends Component {
       document.getElementById('regist-thank-you-screen').classList.add('show');
     }
   };
-
+//Este metodo funciona para mostrar las alertas sobre los campos de form, usando las clases de bootstrap, esto se hace para cada campo
   validateData = (wasValidate) => {
     if (this.clientName == '' && !wasValidate) {
       document.getElementById('regist-fullName').classList.add('is-invalid');
@@ -91,7 +91,7 @@ export default class Regist extends Component {
         .classList.remove('is-invalid');
     }
   };
-
+  
   closeThankYouScreen = () => {
     let thankYouScreen = document.getElementById('regist-thank-you-screen');
     let closeButton = document.getElementById('regist-thank-you-close-button');
@@ -102,6 +102,7 @@ export default class Regist extends Component {
   };
 
   sendData = () => {
+    //guarda el cliente en el service 
     this.client.addClient(
       this.clientName,
       this.clientEmail,

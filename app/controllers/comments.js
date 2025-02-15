@@ -3,12 +3,12 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class CommentsController extends Controller {
-  @service comment;
-  @tracked coments = this.comment.comments;
+  @service comment; // obtenemos el servicio de comentarios 
+  @tracked coments = this.comment.comments; // Inicializamos la lista de comentarios 
+  //esto es extraido del service de comentarios 
 
   reloadComments = () => {
-    this.coments = this.comment.comments;
-
+    this.coments = this.comment.comments; // Actualizamos la lista de comentarios del controlador con los comentarios del servicio
     // Obtenemos el contenedor donde se agregarán las tarjetas
     let cardRow = document.getElementById('cardRow');
 
@@ -54,6 +54,8 @@ export default class CommentsController extends Controller {
       cardBody.appendChild(cardSubtitle);
       cardBody.appendChild(cardText);
 
+
+      //Este es el codigo para agregar las estrellas de calificacion, lo logra por medio de un for , en donde segun la calificacion del cliente, utiliza icons de extrellas las cuales las va a agregar dinamicamente
       for (let i = 0; i < parseInt(comment.clientQualification); i++) {
         let starCalification = document.createElement('i');
         starCalification.innerHTML = "<i class='bi bi-star-fill'></i>";

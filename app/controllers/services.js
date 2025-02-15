@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
 export default class ServicesController extends Controller {
+  //Este service es utilizado en el template de services para mostrar los objetos en forma de UI, cualquier cambio a esta propiedad actualizaria la interfaz grafica con los nuevos cambios
     @tracked services = [
         {
           id: 1,

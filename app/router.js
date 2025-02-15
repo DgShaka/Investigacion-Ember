@@ -5,7 +5,7 @@ export default class Router extends EmberRouter {
   location = config.locationType;
   rootURL = config.rootURL;
 }
-
+//Determina a cuales url se pueden acceder en el código 
 Router.map(function () {
   this.route('services');
   this.route('registration');

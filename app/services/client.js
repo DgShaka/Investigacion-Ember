@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class ClientService extends Service {
   @service store; // Inyectar store de Ember Data
-  @tracked clients = [];
+  @tracked clients = [];//Arreglo reactivo de clientes
   @tracked lastID = 0;
 
   /**
@@ -17,7 +17,7 @@ export default class ClientService extends Service {
     appointmentDate,
     requestService,
   ) {
-
+    //Mapea el model de client y crea un nuevo cliente con los datos ingresados 
     let newClient = this.store.createRecord('client', {
       clientID: this.lastID,
       clientName,
@@ -26,7 +26,7 @@ export default class ClientService extends Service {
       appointmentDate,
       requestService,
     });
-
+    //los 3 puntos son para hacer una copia del arreglo y agregar el nuevo cliente 
     this.clients = [...this.clients, newClient]; // Agregar nuevo cliente al array
     this.lastID ++;
   }
