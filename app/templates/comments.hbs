@@ -3,12 +3,26 @@
 <GeneralContainer>
   <HomeNavigation></HomeNavigation>
   <h1 class="text-center m-4">What our clients say</h1>
-  <button id="reloadButton" class="btn btn-primary mb-4" type="button" {{on "click" this.reloadComments}}>Reload Comments</button>
 
   {{!-- Contenedor de las tarjetas --}}
-  <div id="cardContainer">
+  <div id="cardContainer" {{did-insert this.reloadComments}}>
     <div id="cardRow" class="row">
-      {{!-- Las tarjetas se cargarán dinámicamente aquí --}}
+      {{#each this.coments as |comment index|}}
+        <div id="card" class="col-12 col-md-6 col-lg-3 mb-4">
+          <div class="card-body">
+            <h5 id="cardTitle" class="card-title">
+              <i class="bi bi-person mx-2"></i> {{comment.clientName}}
+            </h5>
+            <h6 id="cardSubtitle" class="card-subtitle mb-2 text-body-secondary">
+              Date: {{comment.date}}
+            </h6>
+            <p id="cardText" class="card-text bg-light">
+              {{comment.clientComment}}
+            </p>
+            <div id={{concat "stars-" comment.email "-" index}} {{did-insert (fn this.generateStars (concat "stars-" comment.email "-" index) comment.clientQualification)}}></div>
+          </div>
+        </div>
+      {{/each}}
     </div>
   </div>
 </GeneralContainer>
