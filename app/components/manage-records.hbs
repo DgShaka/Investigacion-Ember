@@ -1,6 +1,6 @@
-<button id="manage-openForm-ManageRecords" type="button">Manage Records</button>
+<button id="manage-openForm-ManageRecords" type="button" {{on "click" this.displayForm}}>Manage Records</button>
 
-<div id="manage-overlay"></div>
+<div id="manage-overlay" {{on "click" this.disguiseForm}}></div>
 
 <div id="manage-container-form-ManageRecords">
 
@@ -95,7 +95,7 @@
         Registry deleted successfully
     </div>
 
-   <div id="manage-overlay-success"></div>
+   <div id="manage-overlay-success" {{on "click" this.disguiseSuccesScreen}}></div>
 
     <div id="manage-success-screen" class="text-center p-5">
         <div class="success-content">
@@ -107,7 +107,7 @@
                 Your action has been completed successfully. <br>
                 Thank you for trusting <span class="text-primary fw-bold">Neo Smile</span>.
             </p>
-            <button id="manage-success-close-button" class="btn btn-primary btn-lg" type="button">
+            <button id="manage-success-close-button" class="btn btn-primary btn-lg" type="button" {{on "click" this.disguiseSuccesScreen}}>
                 Close
             </button>
         </div>
@@ -115,25 +115,3 @@
 
 </div>
 
-<script>
-    document.getElementById("manage-overlay").addEventListener("click", function(){
-        document.getElementById('manage-overlay').style.display = 'none';
-        document.getElementById('manage-container-form-ManageRecords').style.display = 'none';
-    });
-
-    document.getElementById("manage-openForm-ManageRecords").addEventListener("click", function(){
-        document.getElementById('manage-overlay').style.display = 'block';
-        document.getElementById('manage-container-form-ManageRecords').style.display = 'block';
-    });
-
-    document.getElementById("manage-success-close-button").addEventListener("click", function(){
-        document.getElementById('manage-overlay-success').style.display = 'none';
-        document.getElementById('manage-success-screen').style.display = 'none';
-    });
-
-    document.getElementById("manage-overlay-success").addEventListener("click", function(){
-        document.getElementById('manage-overlay-success').style.display = 'none';
-        document.getElementById('manage-success-screen').style.display = 'none';
-    });
-
-</script>
