@@ -4,8 +4,9 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default class CommentsController extends Controller {
-  @service comment;
-  @tracked coments = this.comment.comments;
+  @service comment; // obtenemos el servicio de comentarios 
+  @tracked coments = this.comment.comments; // Inicializamos la lista de comentarios 
+  //esto es extraido del service de comentarios 
 
   @action
   reloadComments() {

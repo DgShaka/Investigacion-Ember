@@ -12,6 +12,8 @@ export default class CommentRegist extends Component {
   @tracked recommendToAnotherPerson = false;
   @tracked improvement = '';
 
+  
+
   updateEmail = (event) => {
     this.email = event.target.value;
   };
@@ -22,12 +24,12 @@ export default class CommentRegist extends Component {
     this.clientQualification = event.target.value;
   };
   updateRecommendToAnotherPerson = (event) => {
-    this.recommendToAnotherPerson = event.target.checked; // Corregido: usar checked en lugar de value
+    this.recommendToAnotherPerson = event.target.checked; 
   };
   updateImprovement = (event) => {
     this.improvement = event.target.value;
   };
-
+  //cada vez que se cambie la propiedad de alguno de estos campos se va a actualizar
   @action
   submitComment(event) {
     event.preventDefault(); // Evita la recarga de la página
@@ -68,6 +70,7 @@ export default class CommentRegist extends Component {
   }
 
   validateData = () => {
+    //Todas las alertas se muestran unicamente por 3 segundos
     if (this.email === '') {
       const emailInput = document.getElementById('inputClientEmail');
       emailInput.classList.add('is-invalid');

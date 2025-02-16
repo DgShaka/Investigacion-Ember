@@ -13,6 +13,8 @@ export default class ManageRecords extends Component {
 
   @service client; // Inyectamos el servicio del cliente
 
+  //Cada vez que se ingrese en los inputs correspondientes información, va a actualizar las variables 
+
   updateName = (event) => {
     this.clientName = event.target.value;
   };
@@ -32,6 +34,7 @@ export default class ManageRecords extends Component {
     this.requestService = event.target.value;
   };
 
+  //Busca el cliente al cual se espera editar, se busca al cliente por medio del email
   searchClient = (event) => {
     event.preventDefault();
 
@@ -42,6 +45,7 @@ export default class ManageRecords extends Component {
         this.cleanForm();
       } else {
         document.getElementById('manage-invalid-email').style.display = 'none';
+        //Actualiza los campos con los nuevos que se hayan actualizado 
         this.clientName = this.clientEdit.clientName;
         this.clientEmailToEdit = this.clientEdit.clientEmail;
         this.clientPhone = this.clientEdit.clientPhone;
@@ -66,6 +70,7 @@ export default class ManageRecords extends Component {
         requestService: this.requestService,
       };
 
+      //Llama al service de cliente
       let result = this.client.editClient(updatedClient, this.clientEdit.id);
 
       if (result) {
@@ -75,7 +80,7 @@ export default class ManageRecords extends Component {
       }
     }
   };
-
+//Elimina un cliente, de igual manera lo busca por medio del email
   deleteClient = () => {
     let client = this.client.searchClientByEmail(this.clientEmail);
 
@@ -90,7 +95,7 @@ export default class ManageRecords extends Component {
       this.showMessage('manage-invali-feedback-form');
     }
   };
-
+  //Muestra mensajes de error para los campos del form
   validateData = () => {
     let isValid = true;
 
@@ -121,7 +126,7 @@ export default class ManageRecords extends Component {
 
     return isValid;
   };
-
+//limpia los campos del form
   cleanForm = () => {
     this.clientName = '';
     this.clientEmail = '';
@@ -130,7 +135,7 @@ export default class ManageRecords extends Component {
     this.appointmentDate = '';
     this.requestService = '';
   };
-
+  //muestra un mensaje de alerta durante 3 segundos
   showMessage = (elementId) => {
     let element = document.getElementById(elementId);
     if (element) {

@@ -4,9 +4,10 @@ import { inject as service } from '@ember/service';
 
 export default class CommentService extends Service {
   @tracked comments = [];
-  @service client;
+  @service client; // Inyectar servicio de clientes
   @service store; // Inyectar store de Ember Data
 
+  // Metodo para agregar un comentario
   addComment(
     clientComment,
     email,
@@ -14,11 +15,15 @@ export default class CommentService extends Service {
     recommendToAnotherPerson,
     improvement,
   ) {
+
+    //revisa el arreglo de clients the service clients para encontrar al cliente con el mismo email
     let client = this.client.clients.find(
       (client) => client.clientEmail === email,
     );
 
     if (client) {
+      //Crea un nuevo comentarios para ese cliente 
+      //El createRecord es un metodo de ember data que crea un nuevo record segun un modelo 
       let newComment = this.store.createRecord('comment', {
         clientName: client.clientName,
         clientComment,
@@ -29,7 +34,7 @@ export default class CommentService extends Service {
         email: email
       });
 
-      this.comments = [...this.comments, newComment];
+      this.comments = [...this.comments, newComment]; //Esto añade el nuevo comentario al arreglo de comentarios 
 
       return true;
     } else {
