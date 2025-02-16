@@ -83,7 +83,7 @@
                 Your appointment request has been successfully submitted. <br>
                 Our team at <span class="text-primary fw-bold">Neo Smile</span> will contact you shortly to confirm your appointment.
             </p>
-            <button id="regist-thank-you-close-button" class="btn btn-primary btn-lg" type="button">
+            <button id="regist-thank-you-close-button" class="btn btn-primary btn-lg" type="button" {{on "click" this.closeThankYouScreen}}>
                 Close
             </button>
         </div>
@@ -95,9 +95,3 @@
     </div>
 
 </div>
-
-<script>
-    document.getElementById('regist-thank-you-close-button').addEventListener('click', function() {
-        document.getElementById('regist-thank-you-screen').classList.remove('show');
-    });
-</script>

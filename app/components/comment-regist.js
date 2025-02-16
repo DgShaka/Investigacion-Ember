@@ -12,8 +12,6 @@ export default class CommentRegist extends Component {
   @tracked recommendToAnotherPerson = false;
   @tracked improvement = '';
 
-  
-
   updateEmail = (event) => {
     this.email = event.target.value;
   };

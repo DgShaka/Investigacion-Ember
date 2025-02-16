@@ -118,4 +118,9 @@ export default class Regist extends Component {
     this.appointmentDate = '';
     this.requestService = '';
   };
+
+  // Funcion encargada de cerrar la ventana de agradecimiento
+  closeThankYouScreen = () =>{
+    document.getElementById('regist-thank-you-screen').classList.remove('show');
+  }
 }

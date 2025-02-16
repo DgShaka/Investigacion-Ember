@@ -13,6 +13,8 @@ export default class CommentsController extends Controller {
     this.coments = this.comment.comments;
   }
 
+  // Funcion encargada de colocar los inconos de estrellas dentro del card del comentario 
+  // segun la calificacion del cliente
   @action
   generateStars(cardID, clientQualification) {
     const cardElement = document.getElementById(cardID);

@@ -146,6 +146,7 @@ export default class ManageRecords extends Component {
     }
   };
 
+  // Funcion para cerrar el form de gestion de registro
   disguiseForm = () => {
     document.getElementById('manage-overlay').style.display = 'none';
     document.getElementById('manage-container-form-ManageRecords').style.display = 'none';
@@ -153,11 +154,13 @@ export default class ManageRecords extends Component {
     document.getElementById('manage-success-screen').style.display = 'none';
   }
 
+  // Funcion para mostrar el form de gestion de registro
   displayForm = () => {
     document.getElementById('manage-overlay').style.display = 'block';
     document.getElementById('manage-container-form-ManageRecords').style.display = 'block';
   }
 
+  // Funcion para cerrar el la ventana de agradecimiento 
   disguiseSuccesScreen = () => {
     document.getElementById('manage-overlay-success').style.display = 'none';
     document.getElementById('manage-success-screen').style.display = 'none';
