@@ -37,7 +37,6 @@ export default class CommentRegist extends Component {
     if (this.email === '' || this.clientComment === '') {
       this.validateData();
     } else {
-
       this.validateData();
       let success = this.comment.addComment(
         this.clientComment,

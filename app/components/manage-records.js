@@ -62,7 +62,6 @@ export default class ManageRecords extends Component {
     event.preventDefault();
 
     if (this.validateData()) {
-
       let updatedClient = {
         clientName: this.clientName,
         clientEmail: this.clientEmailToEdit,
@@ -146,4 +145,22 @@ export default class ManageRecords extends Component {
       }, 3000);
     }
   };
+
+  disguiseForm = () => {
+    document.getElementById('manage-overlay').style.display = 'none';
+    document.getElementById('manage-container-form-ManageRecords').style.display = 'none';
+    document.getElementById('manage-overlay-success').style.display = 'none';
+    document.getElementById('manage-success-screen').style.display = 'none';
+  }
+
+  displayForm = () => {
+    document.getElementById('manage-overlay').style.display = 'block';
+    document.getElementById('manage-container-form-ManageRecords').style.display = 'block';
+  }
+
+  disguiseSuccesScreen = () => {
+    document.getElementById('manage-overlay-success').style.display = 'none';
+    document.getElementById('manage-success-screen').style.display = 'none';
+  }
+
 }

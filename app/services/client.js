@@ -6,6 +6,7 @@ export default class ClientService extends Service {
   @service store; // Inyectar store de Ember Data
   @tracked clients = [];//Arreglo reactivo de clientes
   @tracked lastID = 0;
+  @service comment;
 
   /**
    * Agrega un nuevo cliente al arreglo
@@ -17,6 +18,8 @@ export default class ClientService extends Service {
     appointmentDate,
     requestService,
   ) {
+
+      
     //Mapea el model de client y crea un nuevo cliente con los datos ingresados 
     let newClient = this.store.createRecord('client', {
       clientID: this.lastID,
@@ -28,7 +31,7 @@ export default class ClientService extends Service {
     });
     //los 3 puntos son para hacer una copia del arreglo y agregar el nuevo cliente 
     this.clients = [...this.clients, newClient]; // Agregar nuevo cliente al array
-    this.lastID ++;
+    this.lastID++;
   }
 
   /**
@@ -42,15 +45,15 @@ export default class ClientService extends Service {
    * Edita un cliente si existe en la lista
    */
   editClient(updatedClient, clientID) {
-    let client = this.clients.find(
-      (c) => c.id === clientID,
-    );
+    let client = this.clients.find((c) => c.id === clientID);
     if (client) {
+      this.comment.updateCommentName(client.clientEmail, updatedClient.clientEmail, updatedClient.clientName);
       client.clientName = updatedClient.clientName;
       client.clientEmail = updatedClient.clientEmail;
       client.clientPhone = updatedClient.clientPhone;
       client.appointmentDate = updatedClient.appointmentDate;
       client.requestService = updatedClient.requestService;
+      
       return true;
     }
     return false;

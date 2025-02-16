@@ -31,6 +31,7 @@ export default class CommentService extends Service {
         recommendToAnotherPerson,
         improvement,
         date: new Date().toISOString().split('T')[0],
+        email: email
       });
 
       this.comments = [...this.comments, newComment]; //Esto añade el nuevo comentario al arreglo de comentarios 
@@ -39,5 +40,13 @@ export default class CommentService extends Service {
     } else {
       return false;
     }
+  }
+
+  updateCommentName(lastEmail, newEmail, newName){
+    let clientComments = this.comments.filter(c => c.email == lastEmail)
+    clientComments.forEach(clientComment => {
+      clientComment.clientName = newName;
+      clientComment.email = newEmail;
+    });
   }
 }
