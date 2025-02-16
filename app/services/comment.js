@@ -42,6 +42,8 @@ export default class CommentService extends Service {
     }
   }
 
+  //Se crea un metodo que actualizara la informacion del email en caso de que el usuario cambie su nombre de usuario o el email este tambien lo haga'
+  //con el proposito de mantener la conexion entre el comentario y el cliente
   updateCommentName(lastEmail, newEmail, newName){
     let clientComments = this.comments.filter(c => c.email == lastEmail)
     clientComments.forEach(clientComment => {

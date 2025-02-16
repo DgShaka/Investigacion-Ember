@@ -5,8 +5,10 @@
   <h1 class="text-center m-4">What our clients say</h1>
 
   {{!-- Contenedor de las tarjetas --}}
+  {{!-- Se utiliza el hook de did-insert para recargar los comentarios del controlador con los del servicio --}}
   <div id="cardContainer" {{did-insert this.reloadComments}}>
     <div id="cardRow" class="row">
+      {{!-- Se cargan los comentarios en cards con su informacion --}}
       {{#each this.coments as |comment index|}}
         <div id="card" class="col-12 col-md-6 col-lg-3 mb-4">
           <div class="card-body">
@@ -19,6 +21,8 @@
             <p id="cardText" class="card-text bg-light">
               {{comment.clientComment}}
             </p>
+            {{!-- Se indica el id de contenedor de las estrellas del comentario
+            para llamar a la funcion encargada de colocar los iconos de bootstrap segun la calificacion que el usuario le dio --}}
             <div id={{concat "stars-" comment.email "-" index}} {{did-insert (fn this.generateStars (concat "stars-" comment.email "-" index) comment.clientQualification)}}></div>
           </div>
         </div>

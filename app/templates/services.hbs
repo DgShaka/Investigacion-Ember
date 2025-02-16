@@ -5,6 +5,7 @@
     <div id="service-container" class="container-fluid mt-4">
         <h1 id="service-title" class="text-center mb-4">Our Services</h1>
         <div id="service-row" class="row row-cols-1 row-cols-md-3 g-4">
+            {{!-- Se cargan los datos de los servicios de manera dinamica gracias a la conexion con el controlador --}}
             {{#each this.services as |service|}}
                 <div id="service-card-{{service.id}}" class="col text-center">
                     <div class="card h-100">
